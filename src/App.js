@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./ShareCompnt/Navbar";
@@ -15,7 +15,7 @@ import Footer from "./ShareCompnt/Footer";
 
 function App() {
   return (
-    <Fragment className="App">
+    <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,7 +27,7 @@ function App() {
         <Route path="signUp" element={<SignUp/>} />
       </Routes>
       <Footer/>
-    </Fragment>
+    </div>
   );
 }
 

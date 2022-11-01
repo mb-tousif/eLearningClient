@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import login from "../../Assets/login.svg";
+import login from "../../Assets/login.png";
+import GIcon from "../../Assets/google-icon.svg";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -24,9 +25,11 @@ export default function Login() {
               <img src={login} alt="Login" />
             </div>
             <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-              <h3 className="pt-4 mb-2 text-center text-2xl font-medium">Login</h3>
+              <h3 className="pt-4 mb-2 text-center text-2xl font-medium">
+                Login
+              </h3>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-group mb-6">
+                <div className="form-group mb-4">
                   <label className="form-label inline-block mb-2 text-gray-700">
                     Email address
                   </label>
@@ -58,7 +61,7 @@ export default function Login() {
                   )}
                 </div>
                 {showPassword ? (
-                  <div className="relative form-group mb-6">
+                  <div className="relative form-group mb-4">
                     <label className="form-label inline-block mb-2 text-gray-700">
                       Password
                     </label>
@@ -138,13 +141,22 @@ export default function Login() {
                 >
                   Login
                 </button>
-                <p className="text-gray-800 mt-6 font-medium text-center">
+                <p className="text-gray-800 mt-4 mb-4 font-medium text-center">
                   New to here ?
                   <Link to="/signUp" className="ml-2">
                     Create an Account!
                   </Link>
                 </p>
               </form>
+              <div className="mb-4"><hr /></div>
+              <button
+                type="button"
+                // onClick={() => signInWithGoogle()}
+                className="w-full flex justify-center bg-[#868d05] hover:bg-[#dba309] text-gray-50 px-6 py-2.5 font-medium text-lg leading-tight rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mt-2 mb-2"
+              >
+                <img src={GIcon} className="h-6 w-10" alt="Google Icon" />{" "}
+                Google
+              </button>
             </div>
           </div>
         </div>
