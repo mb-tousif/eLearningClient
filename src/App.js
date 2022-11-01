@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {Fragment} from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./ShareCompnt/Navbar";
@@ -11,10 +11,11 @@ import SignUp from "./Pages/Authentication/SignUp";
 import Courses from "./Pages/Courses/Courses";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Blogs from "./Pages/Blogs/Blogs";
+import Footer from "./ShareCompnt/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <Fragment className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,7 +26,8 @@ function App() {
         <Route path="login" element={<Login/>} />
         <Route path="signUp" element={<SignUp/>} />
       </Routes>
-    </div>
+      <Footer/>
+    </Fragment>
   );
 }
 
