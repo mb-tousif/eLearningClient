@@ -19,7 +19,8 @@ export default function SignUp() {
     const image = data.image[0];
     const formData = new FormData()
     formData.append("image", image)
-    const url =`https://api.imgbb.com/1/upload?key=${process.env.REACT_IBB_API_KEY}`;
+    // const url =`https://api.imgbb.com/1/upload?key=${process.env.REACT_IBB_API_KEY}`;
+    const url = `https://api.imgbb.com/1/upload?key=ae1d7490ab9268cd599c51b094ff6570`;
     fetch( url, {
       method: "POST",
       body: formData

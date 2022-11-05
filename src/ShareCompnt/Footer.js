@@ -7,10 +7,7 @@ export default function Footer() {
       <div className="p-2">
         <img className="h-16 md:h-20 mx-auto my-auto md:w-40 w-32" src={logo} alt="Logo" />
       </div>
-      <p className="text-base md:text-xl">
-        Best Learning Platform Since 2020.
-      </p>
-      <p>
+      <p className='xs:text-sm'>
         Copyright &#169; {new Date().getFullYear()} - All right reserved.
       </p>
     </div>
