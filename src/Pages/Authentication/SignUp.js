@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import login from "../../Assets/login1.svg";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 import { useForm } from "react-hook-form";
+import Loader from '../../ShareCompnt/Loader';
+import { useGetSignUpUserMutation } from '../../RTK/features/api/postUser';
 
 export default function SignUp() {
   const {
@@ -11,14 +13,43 @@ export default function SignUp() {
     formState: { errors },
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
+  const [createSignup, res] = useGetSignUpUserMutation();
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    // signInWithEmailAndPassword(data.email, data.password);
-    console.log(data);
-    if(data!=null){
-      navigate("/login")
-    }
+    const image = data.image[0];
+    const formData = new FormData()
+    formData.append("image", image)
+    const url =`https://api.imgbb.com/1/upload?key=${process.env.REACT_IBB_API_KEY}`;
+    fetch( url, {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then(result => {
+      if(result.success){
+        const photoUrl= result.data.url;
+        const signUpData = {
+          fullName: data.fullName,
+          email: data.email,
+          password: data.password,
+          role: data.role,
+          contactNumber: data.contactNumber,
+          image: photoUrl,
+          gender: data.gender,
+        };
+        createSignup(signUpData)
+      }
+    })        
   };
+
+  if (res.isLoading === true) {
+    return <Loader />;
+  }
+
+  if (res.isSuccess === true ) {
+    return navigate("/login");
+  }
+
   return (
     <div>
       <div className="container mx-auto">
@@ -155,6 +186,23 @@ export default function SignUp() {
                     />
                   </div>
                 )}
+                <div className="form-group mb-6">
+                  <label className="form-label inline-block mb-2 text-gray-700">
+                    Upload Profile Image
+                  </label>
+                  <input
+                    type="file"
+                    {...register("image", { required: true })}
+                    name="image"
+                    className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+                    placeholder="Enter your Full Name"
+                  />
+                  {errors.image && (
+                    <p className="text-rose-600 text-center">
+                      Upload your profile picture.
+                    </p>
+                  )}
+                </div>
                 <div className="form-group mb-6">
                   <label className="form-label inline-block mb-2 text-gray-700">
                     Enter Your Contact Number
