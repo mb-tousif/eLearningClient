@@ -25,7 +25,7 @@ export default function SignUp() {
         <div className="flex justify-center px-6 my-12">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
             <div className="w-full h-auto bg-[#868d05] hidden sm:block lg:w-1/2 bg-cover rounded">
-              <img src={login} className="p-2" alt="Login" />
+              <img src={login} className="mx-auto mt-12 p-2" alt="Login" />
             </div>
             <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
               <h3 className="pt-4 mb-2 text-center text-2xl font-medium">
@@ -38,37 +38,14 @@ export default function SignUp() {
                   </label>
                   <input
                     type="text"
-                    {...register("name", { required: true })}
-                    name="name"
+                    {...register("fullName", { required: true })}
+                    name="fullName"
                     className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
-                    placeholder="Name"
+                    placeholder="Enter your Full Name"
                   />
-                  {errors.name && (
+                  {errors.fullName && (
                     <p className="text-rose-600 text-center">
-                      Name is required.
-                    </p>
-                  )}
-                </div>
-                <div className="form-group mb-6">
-                  <label className="form-label inline-block mb-2 mr-2 text-gray-700">
-                    User Type
-                  </label>
-                  <select
-                    className={`w-full h-8 text-center bg-[#868d05] text-gray-50 rounded-lg text-xl ${
-                      errors.user &&
-                      " focus:border-red-500 focus:ring-red-500 border-red-500"
-                    }`}
-                    {...register("user", { required: true })}
-                  >
-                    <option value="">--Select User--</option>
-                    <option value="Guest">Guest</option>
-                    <option value="Student">Student</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Administration">Administration</option>
-                  </select>
-                  {errors.user && (
-                    <p className="text-rose-600 text-center">
-                      User type is required.
+                      Full name is required.
                     </p>
                   )}
                 </div>
@@ -178,6 +155,94 @@ export default function SignUp() {
                     />
                   </div>
                 )}
+                <div className="form-group mb-6">
+                  <label className="form-label inline-block mb-2 text-gray-700">
+                    Enter Your Contact Number
+                  </label>
+                  <input
+                    type="number"
+                    {...register("contactNumber", { required: true })}
+                    name="contactNumber"
+                    className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+                    placeholder="Enter your Full Name"
+                  />
+                  {errors.contactNumber && (
+                    <p className="text-rose-600 text-center">
+                      Contact Number is required.
+                    </p>
+                  )}
+                </div>
+                <div className="form-group mb-6">
+                  <label className="form-label inline-block mb-2 mr-2 text-gray-700">
+                    User Role
+                  </label>
+                  <select
+                    className={`w-full h-8 text-center bg-[#868d05] text-gray-50 rounded-lg text-xl ${
+                      errors.role &&
+                      " focus:border-red-500 focus:ring-red-500 border-red-500"
+                    }`}
+                    {...register("role", { required: true })}
+                  >
+                    <option value="">--Select User--</option>
+                    <option value="Student">Student</option>
+                    <option value="Teacher">Teacher</option>
+                  </select>
+                  {errors.role && (
+                    <p className="text-rose-600 text-center">
+                      User role is required.
+                    </p>
+                  )}
+                </div>
+                <div className="form-group mb-6">
+                  <label className="form-label inline-block mb-2 mr-2 text-gray-700">
+                    Gender:
+                  </label>
+                  <input
+                    id="male"
+                    name="gender"
+                    placeholder="Male"
+                    {...register("gender", { required: true })}
+                    type="radio"
+                    value="Male"
+                  />
+                  <label
+                    htmlFor="male"
+                    className="form-label inline-block mb-2 m-2 text-gray-700"
+                  >
+                    Male
+                  </label>
+                  <input
+                    id="female"
+                    name="gender"
+                    {...register("gender", { required: true })}
+                    type="radio"
+                    value="Female"
+                  />
+                  <label
+                    htmlFor="female"
+                    className="form-label inline-block mb-2 m-2 text-gray-700"
+                  >
+                    Female
+                  </label>
+                  <input
+                    id="others"
+                    name="gender"
+                    {...register("gender", { required: true })}
+                    type="radio"
+                    value="Others"
+                  />
+                  <label
+                    htmlFor="others"
+                    className="form-label inline-block mb-2 m-2 text-gray-700"
+                  >
+                    Others
+                  </label>
+                  {errors.gender && (
+                    <p className="text-rose-600 text-center">
+                      Select your gender.
+                    </p>
+                  )}
+                </div>
                 <button
                   type="submit"
                   className="w-full bg-[#868d05] hover:bg-[#dba309] text-gray-50 px-6 py-2.5 font-medium text-xl rounded"

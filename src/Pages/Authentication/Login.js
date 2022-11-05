@@ -3,7 +3,11 @@ import login from "../../Assets/login.png";
 import GIcon from "../../Assets/google-icon.svg";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase.init";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useGetLoginUserMutation } from "../../RTK/features/api/postUser";
+import Loader from "../../ShareCompnt/Loader";
 
 export default function Login() {
   const {
@@ -11,11 +15,24 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
+  const [signInWithGoogle, user, googleLoading] = useSignInWithGoogle(auth);
+  const [ createLogin, res ] = useGetLoginUserMutation();
+
   const onSubmit = (data) => {
-    // signInWithEmailAndPassword(data.email, data.password);
-    console.log(data);
+    createLogin(data)
   };
+
+  if(res.isLoading === true || googleLoading){
+    return <Loader/>
+  }
+  
+  if (res.isSuccess === true || user) {
+   return navigate("/");
+  }
+
+
   return (
     <div>
       <div className="container mx-auto">
@@ -151,7 +168,7 @@ export default function Login() {
               <div className="mb-4"><hr /></div>
               <button
                 type="button"
-                // onClick={() => signInWithGoogle()}
+                onClick={() => signInWithGoogle()}
                 className="w-full flex justify-center bg-[#868d05] hover:bg-[#dba309] text-gray-50 px-6 py-2.5 font-medium text-lg leading-tight rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mt-2 mb-2"
               >
                 <img src={GIcon} className="h-6 w-10" alt="Google Icon" />{" "}
