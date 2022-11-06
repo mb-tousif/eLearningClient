@@ -45,12 +45,6 @@ export default function Navbar() {
                   Blogs
                 </Link>
                 <Link
-                  to="/dashboard"
-                  className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
-                >
-                  Dashboard
-                </Link>
-                <Link
                   to="/login"
                   className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
                 >
