@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import HeroPicture from '../../Assets/Hero.png'
+import HeroPicture from '../../Assets/education.svg'
 
 export default function HeroSection() {
     const navigate = useNavigate()
@@ -14,7 +14,7 @@ export default function HeroSection() {
       <div className="p-2 sm:flex justify-between">
         <div className="my-auto flex justify-center">
           <div className="h-40 sm:ml-8 sm:h-60 w-2 bg-[#ffca3d]"></div>
-          <div className="ml-3 text-[#523d03] sm:text-3xl my-auto font-bold">
+          <div className="ml-3 text-[#523d03] sm:text-2xl md:text-3xl my-auto font-bold">
             <h1 className="text-left">The Best Online Courses,</h1>
             <h1 className="text-left">You Will Find,</h1>
             <h1 className="text-left">Any Where In The World.</h1>
