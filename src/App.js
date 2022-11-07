@@ -11,10 +11,14 @@ import SignUp from "./Pages/Authentication/SignUp";
 import Courses from "./Pages/Courses/Courses";
 import Blogs from "./Pages/Blogs/Blogs";
 import Footer from "./ShareCompnt/Footer";
+import ScrollToTop from "./ShareCompnt/ScrollNavigation";
+import SocialShare from "./ShareCompnt/SocialShare";
 
 function App() {
   return (
-    <div>
+    <>
+      <SocialShare/>
+      <ScrollToTop/>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,7 +29,7 @@ function App() {
         <Route path="signUp" element={<SignUp/>} />
       </Routes>
       <Footer/>
-    </div>
+    </>
   );
 }
 
