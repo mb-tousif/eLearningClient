@@ -27,7 +27,7 @@ export default function ScrollToTop() {
 
   //scroll-to-top classes: fixed, bottom:0, right:0
   return (
-    <div className="fixed bottom-8 right-8">
+    <div className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8">
       {isVisible && (
         <div onClick={scrollToTop} className="w-14 h-14 ">
           <HiArrowNarrowUp className="text-[#ffca3d] bg-[#020b53c0] p-1 rounded-full my-auto mx-auto h-8 w-8 font-medium animate-bounce" />

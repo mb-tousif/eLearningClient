@@ -5,12 +5,7 @@ import HeroPicture from '../../Assets/education.svg'
 export default function HeroSection() {
     const navigate = useNavigate()
   return (
-    <div
-      style={{
-        background:
-          "linear-gradient(90deg, rgb(208, 218, 227), rgb(173, 205, 237))",
-      }}
-    >
+    <div className='bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED]'>
       <div className="p-2 sm:flex justify-between">
         <div className="my-auto flex justify-center">
           <div className="h-40 sm:ml-8 sm:h-60 w-2 bg-[#ffca3d]"></div>

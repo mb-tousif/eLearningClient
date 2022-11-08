@@ -26,65 +26,28 @@ export default function HomeCourses() {
         </div>
       </div>
       <div className="mt-4">
-        <img src={onlineClass} className="mb-6 mx-auto" alt="" />
-        <p className="sm:text-xl text-base w-2/3 mx-auto sm:font-semibold mb-12 text-[#523d03]">
-          <span
-            style={{
-              background:
-                "linear-gradient(90deg, rgb(208, 218, 227), rgb(173, 205, 237))",
-            }}
-            className="text-[#020c53] p-2 rounded-2xl"
-          >
-            Study With Scholar
-          </span>
-          is all about project-based learning. We create short highly-focused
-          videos that make learning to level up your programming skills.
-        </p>
+        <img src={onlineClass} className="mb-6 mt-3 mx-auto" alt="" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           <div className="p-2">
-            <div
-              style={{
-                background:
-                  "linear-gradient(90deg, rgb(208, 218, 227), rgb(173, 205, 237))",
-              }}
-              className="p-2 rounded-2xl text-[#523d03]"
-            >
+            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
               <FaGlobeAsia className="h-8 mx-auto w-12 mb-3" />
               <p className="text-2xl font-medium">Web Development</p>
             </div>
           </div>
           <div className="p-2">
-            <div
-              style={{
-                background:
-                  "linear-gradient(90deg, rgb(208, 218, 227), rgb(173, 205, 237))",
-              }}
-              className="p-2 rounded-2xl text-[#523d03]"
-            >
+            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
               <VscWorkspaceTrusted className="h-8 mx-auto w-12 mb-3" />
               <p className="text-2xl font-medium">Cyber Security</p>
             </div>
           </div>
           <div className="p-2">
-            <div
-              style={{
-                background:
-                  "linear-gradient(90deg, rgb(208, 218, 227), rgb(173, 205, 237))",
-              }}
-              className="p-2 rounded-2xl text-[#523d03]"
-            >
+            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
               <BsCodeSquare className="h-8 mx-auto w-12 mb-3" />
               <p className="text-2xl font-medium">Programming Language</p>
             </div>
           </div>
           <div className="p-2">
-            <div
-              style={{
-                background:
-                  "linear-gradient(90deg, rgb(208, 218, 227), rgb(173, 205, 237))",
-              }}
-              className="p-2 rounded-2xl text-[#523d03]"
-            >
+            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
               <GiArtificialIntelligence className="mx-auto h-8 w-12 mb-3" />
               <p className="text-2xl font-medium">AI & Machine Learning</p>
             </div>

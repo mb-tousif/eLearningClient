@@ -7,10 +7,6 @@ export default function HomeReviews() {
       <h1 className="text-[#523d03] font-semibold sm:font-extrabold text-3xl mt-12 mb-8">
         What our Students say
       </h1>
-      <p className="text-[#044d07] font-normal sm:font-medium text-lg mb-8">
-        We try to teach our students with the Best Technology and Effectively
-        that will take them towards their goal.
-      </p>
       <div className="w-2/3 mx-auto mt-4 mb-4 h-2 bg-[#2c1668] rounded-3xl"></div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
       {
