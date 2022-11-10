@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { GoLocation } from "react-icons/go";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";

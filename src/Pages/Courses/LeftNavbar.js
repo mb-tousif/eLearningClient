@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function LeftNavbar() {
   return (
-    <div className="w-[38vh] top-0 left-0 h-screen bg-gradient-to-b from-[#D0DAE3] to-[#ADCDED]">
-      <div className="m-2">
+    <div className="w-[38vh] text-left top-0 left-0 h-screen bg-gradient-to-b from-[#D0DAE3] to-[#ADCDED]">
+      <div className="m-2 mt-20">
         <Link
           to="/courses"
           className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-[#1c3a13] hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out"
