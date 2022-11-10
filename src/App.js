@@ -13,22 +13,24 @@ import Blogs from "./Pages/Blogs/Blogs";
 import Footer from "./ShareCompnt/Footer";
 import ScrollToTop from "./ShareCompnt/ScrollNavigation";
 import SocialShare from "./ShareCompnt/SocialShare";
+import PageNotFound from "./ShareCompnt/PageNotFound";
 
 function App() {
   return (
     <>
-      <SocialShare/>
-      <ScrollToTop/>
+      <SocialShare />
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="courses" element={<Courses/>} />
-        <Route path="blogs" element={<Blogs/>} />
-        <Route path="login" element={<Login/>} />
-        <Route path="signUp" element={<SignUp/>} />
+        <Route path="courses" element={<Courses />} />
+        <Route path="blogs" element={<Blogs />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signUp" element={<SignUp />} />
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }

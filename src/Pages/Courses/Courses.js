@@ -1,9 +1,14 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
+import LeftNavbar from './LeftNavbar';
 
 export default function Courses() {
   return (
-    <div>
-      <h1 className="text-lg">Our Courses</h1>
+    <div className="flex">
+      <LeftNavbar />
+      <div className="">
+        <Outlet/>
+      </div>
     </div>
   );
 }

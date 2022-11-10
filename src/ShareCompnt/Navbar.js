@@ -73,7 +73,7 @@ export default function Navbar() {
           open ? "block" : "hidden"
         } absolute z-20 bg-[#232274f9] w-full md:hidden opacity-90`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 translate ease-in-out duration-300">
           <Link
             to="/"
             className="block px-3 py-2 rounded-md text-base font-medium"
@@ -97,12 +97,6 @@ export default function Navbar() {
             className="block px-3 py-2 rounded-md text-base font-medium"
           >
             Blogs
-          </Link>
-          <Link
-            to="/dashboard"
-            className="block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Dashboard
           </Link>
           <Link
             to="/login"
