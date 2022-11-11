@@ -1,5 +1,5 @@
 import React from 'react'
-import { reviews } from '../../Constant/ReviewsData';
+import { reviews } from '../../Constant/Data';
 
 export default function HomeReviews() {
   return (

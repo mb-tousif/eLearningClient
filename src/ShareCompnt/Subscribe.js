@@ -8,7 +8,7 @@ export default function Subscribe() {
     <div className="container flex flex-col justify-center items-center mx-auto my-8 py-10">
       <div className="max-w-5xl h-64 w-full rounded-lg shadow-md bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED]">
         <h1 className="text-[#523d03] font-semibold sm:font-extrabold mt-2 mb-4 p-2 text-3xl sm:mt-8 sm:mb-4">
-          Ready to start Learning ? Join Us...
+          Ready to start Learning ? Join With Us...
         </h1>
         <button
           onClick={() => navigate("/login")}
