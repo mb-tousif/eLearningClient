@@ -8,11 +8,11 @@ export default function Subscribe() {
     <div className="container flex flex-col justify-center items-center mx-auto my-8 py-10">
       <div className="max-w-5xl h-64 w-full rounded-lg shadow-md bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED]">
         <h1 className="text-[#523d03] font-semibold sm:font-extrabold mt-2 mb-4 p-2 text-3xl sm:mt-8 sm:mb-4">
-          Ready to start Learning ? Join With Us...
+          Ready to start Learning ? Join Here...
         </h1>
         <button
           onClick={() => navigate("/login")}
-          className="hover:bg-[#2f3a8b] hover:text-gray-50 transition ease-in-out duration-500 w-1/2 sm:w-1/3 md:w-1/4 text-[#523d03] rounded-2xl h-10 bg-amber-400"
+          className="hover:bg-[#2f3a8b] hover:text-gray-50 transition ease-in-out duration-500 w-1/2 sm:w-1/3 md:w-1/4 text-[#523d03] rounded-xl h-10 bg-amber-400"
         >
           Get Started
         </button>
