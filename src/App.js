@@ -17,10 +17,9 @@ import PageNotFound from "./ShareCompnt/PageNotFound";
 import AllCourses from "./Pages/Courses/AllCourses";
 import StudentProgress from "./Pages/Courses/StudentProgress";
 import NoticeBoard from "./Pages/Courses/NoticeBoard";
-import ProgrammingLanguages from "./Pages/Courses/Languages";
-import MachineLearning from "./Pages/Courses/MachineLearning";
-import CyberSecurity from "./Pages/Courses/CyberSecurity";
-import WebDevelopment from "./Pages/Courses/WebDevelopment";
+import MyCart from "./Pages/Courses/MyCart";
+import MyCourses from "./Pages/Courses/MyCourses";
+import StudentSupport from "./Pages/Courses/StudentSupport";
 
 function App() {
   return (
@@ -33,10 +32,9 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="courses" element={<Courses />}>
           <Route index element={<AllCourses />} />
-          <Route path="webDevelopment" element={<WebDevelopment />} />
-          <Route path="cyberSecurity" element={<CyberSecurity />} />
-          <Route path="machineLearning" element={<MachineLearning />} />
-          <Route path="languages" element={<ProgrammingLanguages />} />
+          <Route path="cart" element={<MyCart />} />
+          <Route path="myCourses" element={<MyCourses />} />
+          <Route path="support" element={<StudentSupport/>} />
           <Route path="noticeBoard" element={<NoticeBoard />} />
           <Route path="studentProgress" element={<StudentProgress />} />
         </Route>
