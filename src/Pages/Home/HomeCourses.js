@@ -5,7 +5,7 @@ import { FaGlobeAsia } from "react-icons/fa";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { BsCodeSquare } from "react-icons/bs";
 import { GiArtificialIntelligence } from "react-icons/gi";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function HomeCourses() {
   const navigate = useNavigate();
@@ -29,28 +29,36 @@ export default function HomeCourses() {
         <img src={onlineClass} className="mb-6 mt-3 mx-auto" alt="" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           <div className="p-2">
-            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
-              <FaGlobeAsia className="h-8 mx-auto w-12 mb-3" />
-              <p className="text-2xl font-medium">Web Development</p>
-            </div>
+            <Link to="/courses">
+              <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
+                <FaGlobeAsia className="h-8 mx-auto w-12 mb-3" />
+                <p className="text-2xl font-medium">Web Development</p>
+              </div>
+            </Link>
           </div>
           <div className="p-2">
-            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
-              <VscWorkspaceTrusted className="h-8 mx-auto w-12 mb-3" />
-              <p className="text-2xl font-medium">Cyber Security</p>
-            </div>
+            <Link to="/courses">
+              <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
+                <VscWorkspaceTrusted className="h-8 mx-auto w-12 mb-3" />
+                <p className="text-2xl font-medium">Cyber Security</p>
+              </div>
+            </Link>
           </div>
           <div className="p-2">
-            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
-              <BsCodeSquare className="h-8 mx-auto w-12 mb-3" />
-              <p className="text-2xl font-medium">Programming Language</p>
-            </div>
+            <Link to="/courses">
+              <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
+                <BsCodeSquare className="h-8 mx-auto w-12 mb-3" />
+                <p className="text-2xl font-medium">Programming Languages</p>
+              </div>
+            </Link>
           </div>
           <div className="p-2">
-            <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
-              <GiArtificialIntelligence className="mx-auto h-8 w-12 mb-3" />
-              <p className="text-2xl font-medium">AI & Machine Learning</p>
-            </div>
+            <Link to="/courses">
+              <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
+                <GiArtificialIntelligence className="mx-auto h-8 w-12 mb-3" />
+                <p className="text-2xl font-medium">AI & Machine Learning</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

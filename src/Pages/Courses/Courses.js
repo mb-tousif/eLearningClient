@@ -6,9 +6,7 @@ export default function Courses() {
   return (
     <div className="flex">
       <LeftNavbar />
-      <div className="">
-        <Outlet/>
-      </div>
+      <Outlet/>
     </div>
   );
 }

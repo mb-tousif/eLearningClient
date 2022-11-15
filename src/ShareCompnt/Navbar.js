@@ -13,7 +13,7 @@ export default function Navbar() {
           <div className="flex flex-auto">
             <div className="mx-auto my-auto p-2">
               <img
-                className="h-16 md:h-20 md:w-40 w-32"
+                className="h-16 p-2 md:h-20 md:w-40 w-32"
                 src={logo}
                 alt="Logo"
               />

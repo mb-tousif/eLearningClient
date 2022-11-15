@@ -14,6 +14,13 @@ import Footer from "./ShareCompnt/Footer";
 import ScrollToTop from "./ShareCompnt/ScrollNavigation";
 import SocialShare from "./ShareCompnt/SocialShare";
 import PageNotFound from "./ShareCompnt/PageNotFound";
+import AllCourses from "./Pages/Courses/AllCourses";
+import StudentProgress from "./Pages/Courses/StudentProgress";
+import NoticeBoard from "./Pages/Courses/NoticeBoard";
+import ProgrammingLanguages from "./Pages/Courses/Languages";
+import MachineLearning from "./Pages/Courses/MachineLearning";
+import CyberSecurity from "./Pages/Courses/CyberSecurity";
+import WebDevelopment from "./Pages/Courses/WebDevelopment";
 
 function App() {
   return (
@@ -24,11 +31,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="courses" element={<Courses />} />
+        <Route path="courses" element={<Courses />}>
+          <Route index element={<AllCourses />} />
+          <Route path="webDevelopment" element={<WebDevelopment />} />
+          <Route path="cyberSecurity" element={<CyberSecurity />} />
+          <Route path="machineLearning" element={<MachineLearning />} />
+          <Route path="languages" element={<ProgrammingLanguages />} />
+          <Route path="noticeBoard" element={<NoticeBoard />} />
+          <Route path="studentProgress" element={<StudentProgress />} />
+        </Route>
         <Route path="blogs" element={<Blogs />} />
         <Route path="login" element={<Login />} />
         <Route path="signUp" element={<SignUp />} />
-        <Route path="*" element={<PageNotFound/>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </>
