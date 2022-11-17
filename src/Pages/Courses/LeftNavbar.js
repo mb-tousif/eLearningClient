@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function LeftNavbar() {
   return (
-    <div className="w-[38vh] text-left top-0 left-0 min-h-full bg-gradient-to-b from-[#D0DAE3] to-[#ADCDED]">
+    <div className="sm:min-w-[38vh] text-left top-0 left-0 min-h-full bg-gradient-to-b from-[#D0DAE3] to-[#ADCDED]">
       <div className="m-2 mb-2 mt-20">
         <Link
           to="/courses"
