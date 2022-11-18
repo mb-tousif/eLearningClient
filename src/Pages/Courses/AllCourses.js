@@ -4,13 +4,12 @@ import { useGetAllCoursesQuery } from "../../RTK/features/api/courseApi";
 import { Link } from "react-router-dom";
 
 export default function AllCourses() {
-  const { data, isError, isLoading} = useGetAllCoursesQuery();
+  
+  const { data, isLoading} = useGetAllCoursesQuery();
   if (isLoading === true) {
     return <Loader />;
   }
-  if (isError){
-    return <h1>An error occurred</h1>
-  }
+
   return (
     <section className="text-gray-600 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       {data.data.map((course) => (
@@ -26,30 +25,31 @@ export default function AllCourses() {
                 CATEGORY
               </h2>
               <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                {course.tittle}
+                {course.title}
               </h1>
               <p className="leading-relaxed mb-3">{course.description}</p>
-              <div className="flex justify-center flex-wrap">
-                <Link
-                  to="/courses/cart"
-                  className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-                >
-                  Buy Now
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
-                </Link>
+              <div className="flex justify-around">
+                <p className="ml-4">Discount: % {course.discount}</p>
                 <p className="ml-4">Price: $ {course.price}</p>
               </div>
+              <Link
+                to="/courses/cart"
+                className="text-indigo-500 inline-flex items-center mt-3 md:mb-2 lg:mb-0"
+              >
+                Buy Now
+                <svg
+                  className="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </Link>
             </div>
           </div>
         </div>

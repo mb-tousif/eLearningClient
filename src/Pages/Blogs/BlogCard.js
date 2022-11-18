@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
-import { blogs } from '../../Constant/BlogsData';
+import { useGetAllBlogsQuery } from '../../RTK/features/api/blogApi';
+import Loader from '../../ShareCompnt/Loader';
 
 export default function BlogCard() {
     const [isReadMore, setIsReadMore] = useState(true);
     const toggleReadMore = () => {setIsReadMore(!isReadMore)};
+    const { data, isLoading } = useGetAllBlogsQuery();
+    if (isLoading === true) {
+      return <Loader />;
+    }
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      {blogs.map((blog) => (
+      {data.data.map((blog) => (
         <div key={blog.id} className="p-2 sm:p-4">
           <div className="block bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] rounded-lg shadow-lg text-center">
             <img
               className="w-full sm:h-80 h-60 rounded-t-lg md:rounded-none md:rounded-l-lg"
-              src={blog.imgUrl}
+              src={blog.imageUrl}
               alt="title"
             />
             <div className="p-6">
@@ -24,7 +29,7 @@ export default function BlogCard() {
               </p>
             </div>
             <div className="py-3 px-6 text-right border-gray-300 text-gray-600">
-              2 days ago
+              {blog.createdAt}
             </div>
           </div>
         </div>
