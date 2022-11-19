@@ -24,4 +24,4 @@ export const courseApi = createApi({
     }),
   }),
 });
-export const { useGetAllCoursesQuery } = courseApi
+export const { useGetAllCoursesQuery, usePostCourseMutation } = courseApi

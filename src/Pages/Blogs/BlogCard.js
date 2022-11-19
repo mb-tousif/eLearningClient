@@ -12,7 +12,7 @@ export default function BlogCard() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       {data.data.map((blog) => (
-        <div key={blog.id} className="p-2 sm:p-4">
+        <div key={blog._id} className="p-2 sm:p-4">
           <div className="block bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] rounded-lg shadow-lg text-center">
             <img
               className="w-full sm:h-80 h-60 rounded-t-lg md:rounded-none md:rounded-l-lg"
