@@ -11,18 +11,18 @@ export default function AllCourses() {
   }
 
   return (
-    <section className="text-gray-600 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+    <section className="text-gray-600 grid grid-cols-1">
       {data.data.map((course) => (
         <div key={course._id} className="p-2">
           <div className="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <img
-              className="lg:h-48 md:h-36 w-full object-cover"
+              className="md:h-96 sm:80 h-64 w-full p-2 object-cover"
               src={course.imageUrl}
               alt="course"
             />
             <div className="p-6">
               <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                CATEGORY
+                {course.category}
               </h2>
               <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                 {course.title}
