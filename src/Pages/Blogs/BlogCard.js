@@ -24,10 +24,6 @@ export default function BlogCard() {
               <h5 className="text-gray-900 text-xl font-medium mb-2">
                 {blog.title}
               </h5>
-              {/* <p className="text-gray-700 text-justify text-base mb-4">
-                {isReadMore ? blog.description.slice(0, 150) + " ...": blog.description }
-                { isReadMore ? <button className='hover:bg-[#2f3a8b] mt-3 float-right p-2 block hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] rounded bg-amber-400' onClick={toggleReadMore}> Read More</button> : <button className='hover:bg-[#2f3a8b] block float-right mt-3 p-2 hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] rounded bg-amber-400' onClick={toggleReadMore}> Read less</button>}
-              </p> */}
               <div className="flex justify-end">
                 <button
                   className="flex font-semibold"
@@ -38,9 +34,6 @@ export default function BlogCard() {
                 </button>
               </div>
             </div>
-            {/* <div className="py-3 px-6 text-right border-gray-300 text-gray-600">
-              {blog.createdAt}
-            </div> */}
           </div>
         </div>
       ))}
