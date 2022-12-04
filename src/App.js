@@ -20,6 +20,7 @@ import NoticeBoard from "./Pages/Courses/NoticeBoard";
 import MyCart from "./Pages/Courses/MyCart";
 import MyCourses from "./Pages/Courses/MyCourses";
 import StudentSupport from "./Pages/Courses/StudentSupport";
+import BlogDetails from "./Pages/Blogs/BlogDetails";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="studentProgress" element={<StudentProgress />} />
         </Route>
         <Route path="blogs" element={<Blogs />} />
+        <Route path="blog/:id" element={<BlogDetails/>} />
         <Route path="login" element={<Login />} />
         <Route path="signUp" element={<SignUp />} />
         <Route path="*" element={<PageNotFound />} />

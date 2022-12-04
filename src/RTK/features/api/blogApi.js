@@ -9,7 +9,13 @@ export const blogApi = createApi({
     getAllBlogs: builder.query({
       query: () => ({
         url: "allBlogs",
-        // method: "GET"
+        method: "GET",
+      }),
+    }),
+    getBlogById: builder.query({
+      query: (id) => ({
+        url: `blog/${id}`,
+        method: "GET" // Default method is GET
       }),
     }),
     postBlog: builder.mutation({
@@ -24,4 +30,4 @@ export const blogApi = createApi({
     }),
   }),
 });
-export const { useGetAllBlogsQuery, usePostBlogMutation } = blogApi;
+export const { useGetAllBlogsQuery, usePostBlogMutation, useGetBlogByIdQuery } = blogApi;

@@ -16,6 +16,7 @@ export default function SignUp() {
   const [createSignup, res] = useGetSignUpUserMutation();
   const navigate = useNavigate();
   const onSubmit = (data) => {
+    console.log(typeof(data.contactNumber));
     const image = data.image[0];
     const formData = new FormData()
     formData.append("image", image)
