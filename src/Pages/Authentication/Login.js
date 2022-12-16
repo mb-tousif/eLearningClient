@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import login from "../../Assets/login.png";
-import GIcon from "../../Assets/google-icon.svg";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useGetLoginUserMutation } from "../../RTK/features/api/postUser";
 import Loader from "../../ShareCompnt/Loader";
 
@@ -17,18 +14,17 @@ export default function Login() {
   } = useForm();
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
-  const [signInWithGoogle, user, googleLoading] = useSignInWithGoogle(auth);
   const [ createLogin, res ] = useGetLoginUserMutation();
 
   const onSubmit = (data) => {
     createLogin(data)
   };
 
-  if(res.isLoading === true || googleLoading){
+  if(res.isLoading === true){
     return <Loader/>
   }
   
-  if (res.isSuccess === true || user) {
+  if (res.isSuccess === true) {
    return navigate("/");
   }
 
@@ -165,7 +161,7 @@ export default function Login() {
                   </Link>
                 </p>
               </form>
-              <div className="mb-4"><hr /></div>
+              {/* <div className="mb-4"><hr /></div>
               <button
                 type="button"
                 onClick={() => signInWithGoogle()}
@@ -173,7 +169,7 @@ export default function Login() {
               >
                 <img src={GIcon} className="h-6 w-10" alt="Google Icon" />{" "}
                 Google
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
