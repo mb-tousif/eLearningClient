@@ -19,12 +19,14 @@ export default function Login() {
   const onSubmit = (data) => {
     createLogin(data)
   };
-
+  console.log(res);
+  
   if(res.isLoading === true){
     return <Loader/>
   }
   
   if (res.isSuccess === true) {
+    // localStorage.setItem("token", res.data.token);
    return navigate("/");
   }
 
@@ -33,7 +35,7 @@ export default function Login() {
     <div>
       <div className="container mx-auto">
         <div className="flex justify-center px-6 my-12">
-          <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+          <div className="w-full xl:w-3/4 lg:w-11/12 flex shadow-xl">
             <div className="w-full h-auto bg-[#868d05] hidden sm:block lg:w-1/2 bg-cover rounded">
               <img src={login} alt="Login" />
             </div>
@@ -42,8 +44,8 @@ export default function Login() {
                 Login
               </h3>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-group mb-4">
-                  <label className="form-label inline-block mb-2 text-gray-700">
+                <div className="mb-4">
+                  <label className="inline-block mb-2 text-gray-700">
                     Email address
                   </label>
                   <input
@@ -59,7 +61,7 @@ export default function Login() {
                         message: "Email is required",
                       },
                     })}
-                    className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+                    className="block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
                     placeholder="Enter email"
                   />
                   {errors.email?.type === "pattern" && (
@@ -74,8 +76,8 @@ export default function Login() {
                   )}
                 </div>
                 {showPassword ? (
-                  <div className="relative form-group mb-4">
-                    <label className="form-label inline-block mb-2 text-gray-700">
+                  <div className="relative mb-4">
+                    <label className="inline-block mb-2 text-gray-700">
                       Password
                     </label>
                     <input
@@ -91,7 +93,7 @@ export default function Login() {
                           message: "Password is required",
                         },
                       })}
-                      className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+                      className="block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
                       placeholder="Password"
                     />
                     {errors.password?.type === "minLength" && (
@@ -111,8 +113,8 @@ export default function Login() {
                     />
                   </div>
                 ) : (
-                  <div className="relative form-group mb-6">
-                    <label className="form-label inline-block mb-2 text-gray-700">
+                  <div className="relative mb-6">
+                    <label className="inline-block mb-2 text-gray-700">
                       Password
                     </label>
                     <input
@@ -128,7 +130,7 @@ export default function Login() {
                           message: "Password is required",
                         },
                       })}
-                      className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+                      className="block w-full px-3 py-1.5 text-base font-normal text-gray-50 bg-[#868d05] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
                       placeholder="Password"
                     />
                     {errors.password?.type === "minLength" && (
@@ -161,15 +163,6 @@ export default function Login() {
                   </Link>
                 </p>
               </form>
-              {/* <div className="mb-4"><hr /></div>
-              <button
-                type="button"
-                onClick={() => signInWithGoogle()}
-                className="w-full flex justify-center bg-[#868d05] hover:bg-[#dba309] text-gray-50 px-6 py-2.5 font-medium text-lg leading-tight rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mt-2 mb-2"
-              >
-                <img src={GIcon} className="h-6 w-10" alt="Google Icon" />{" "}
-                Google
-              </button> */}
             </div>
           </div>
         </div>
