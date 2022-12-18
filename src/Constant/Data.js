@@ -18,7 +18,7 @@ export const reviews = [
   },
   {
     id: 3,
-    name: "Jack Ma",
+    name: "Jhon Wicks",
     review: "Study With Scholar just rebuild my lifestyle with great time management guidelines. Really, It was an amazing journey.It was a life changing course for me.",
     position: "Security Analyst",
     imageUrl: "https://i.postimg.cc/13Jp36qc/home-Course-3.jpg",

@@ -11,12 +11,12 @@ export default function AllCourses() {
   }
 
   return (
-    <section className="text-gray-600 grid grid-cols-1">
+    <section className="text-gray-600 grid mx-auto grid-cols-1">
       {data.data.map((course) => (
         <div key={course._id} className="p-2">
           <div className="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <img
-              className="md:h-96 sm:80 h-64 w-full p-2 object-cover"
+              className="md:h-96 mx-auto sm:80 h-64 w-fit p-2 object-cover"
               src={course.imageUrl}
               alt="course"
             />
@@ -27,7 +27,7 @@ export default function AllCourses() {
               <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                 {course.title}
               </h1>
-              <p className="leading-relaxed mb-3">{course.description}</p>
+              <p className="leading-relaxed mb-3 md:w-96 mx-auto">{course.description}</p>
               <div className="flex justify-around">
                 <p className="ml-4">Discount: % {course.discount}</p>
                 <p className="ml-4">Price: $ {course.price}</p>

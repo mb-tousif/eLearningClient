@@ -5,8 +5,8 @@ import LeftNavbar from './LeftNavbar';
 export default function Courses() {
   return (
     <div className="flex">
-      <LeftNavbar />
-      <Outlet/>
+      <LeftNavbar className="grow" />
+      <Outlet />
     </div>
   );
 }
