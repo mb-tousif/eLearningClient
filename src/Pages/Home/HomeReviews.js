@@ -1,7 +1,12 @@
 import React from 'react'
-import { reviews } from '../../Constant/Data';
+import { useGetAllReviewsQuery } from '../../RTK/features/api/reviewApi';
+import Loader from '../../ShareCompnt/Loader';
 
 export default function HomeReviews() {
+  const { data, isLoading } = useGetAllReviewsQuery();
+  if (isLoading === true) {
+    return <Loader />;
+  }
   return (
     <div>
       <h1 className="text-[#523d03] font-semibold sm:font-extrabold text-3xl mt-12 mb-8">
@@ -9,24 +14,24 @@ export default function HomeReviews() {
       </h1>
       <div className="w-2/3 mx-auto mt-4 mb-4 h-2 bg-[#2c1668] rounded-3xl"></div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-        {reviews.map((review) => (
-          <div class="max-w-sm mx-auto w-full key={review.id} lg:flex">
+        {data.data.map((review) => (
+          <div key={review._id} className="max-w-sm mx-auto w-full key={review.id} lg:flex">
             <div
-              class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+              className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
               style={{ backgroundImage: `url(${review.imageUrl})`, backgroundSize: "cover",backgroundPosition: "center"}}
               title="Our Ex-Student"
             ></div>
-            <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-              <div class="mb-8">
-                <div class="text-gray-900 font-bold text-xl mb-2">
+            <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+              <div className="mb-8">
+                <div className="text-gray-900 font-bold text-xl mb-2">
                   Ex-Student Review
                 </div>
-                <p class="text-gray-700 text-base lg:text-justify">{review.review}</p>
+                <p className="text-gray-700 text-base lg:text-justify">{review.review}</p>
               </div>
-              <div class="flex items-center">
-                <div class="text-sm">
-                  <p class="text-gray-900 leading-none">{review.name}</p>
-                  <p class="text-gray-600">{review.position}</p>
+              <div className="flex items-center">
+                <div className="text-sm">
+                  <p className="text-gray-900 leading-none">{review.name}</p>
+                  <p className="text-gray-600">{review.position}</p>
                 </div>
               </div>
             </div>

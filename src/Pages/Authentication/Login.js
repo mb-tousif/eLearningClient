@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useGetLoginUserMutation } from "../../RTK/features/api/postUser";
 import Loader from "../../ShareCompnt/Loader";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const {
@@ -27,7 +28,8 @@ export default function Login() {
   
   if (res.isSuccess === true) {
     // localStorage.setItem("token", res.data.token);
-   return navigate("/");
+    toast.success("Login Success");
+    navigate("/");
   }
 
 

@@ -1,13 +1,21 @@
 import React from "react";
 import Loader from "../../ShareCompnt/Loader";
 import { useGetAllCoursesQuery } from "../../RTK/features/api/courseApi";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addCartItem } from "../../RTK/features/cartSlice/cartSlice";
 
 export default function AllCourses() {
   
+  const dispatch = useDispatch();
+
   const { data, isLoading} = useGetAllCoursesQuery();
+
   if (isLoading === true) {
     return <Loader />;
+  }
+
+  const handleAddToCart = ( course) =>{
+    dispatch(addCartItem(course))
   }
 
   return (
@@ -27,29 +35,19 @@ export default function AllCourses() {
               <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                 {course.title}
               </h1>
-              <p className="leading-relaxed mb-3 md:w-96 mx-auto">{course.description}</p>
-              <div className="flex justify-around">
+              <p className="leading-relaxed mb-3 md:w-96 mx-auto">
+                {course.description}
+              </p>
+              <div className="flex justify-around mb-2">
                 <p className="ml-4">Discount: % {course.discount}</p>
                 <p className="ml-4">Price: $ {course.price}</p>
               </div>
-              <Link
-                to="/courses/cart"
-                className="text-indigo-500 inline-flex items-center mt-3 md:mb-2 lg:mb-0"
+              <button
+                onClick={() => handleAddToCart(course)}
+                className="hover:bg-[#2f3a8b] mb-2 hover:text-gray-50 transition ease-in-out duration-500 w-1/2 sm:w-1/3 md:w-1/4 text-[#523d03] rounded-2xl h-10 bg-amber-400"
               >
                 Buy Now
-                <svg
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

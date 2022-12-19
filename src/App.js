@@ -21,6 +21,7 @@ import MyCart from "./Pages/Courses/MyCart";
 import MyCourses from "./Pages/Courses/MyCourses";
 import StudentSupport from "./Pages/Courses/StudentSupport";
 import BlogDetails from "./Pages/Blogs/BlogDetails";
+import AdminPage from "./Pages/Courses/AdminPage";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="courses" element={<Courses />}>
           <Route index element={<AllCourses />} />
+          <Route path="admin" element={<AdminPage/>} />
           <Route path="cart" element={<MyCart />} />
           <Route path="myCourses" element={<MyCourses />} />
           <Route path="support" element={<StudentSupport/>} />
@@ -45,11 +47,10 @@ function App() {
         <Route path="signUp" element={<SignUp />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <ToastContainer />
       <Footer />
     </>
   );
 }
-
-<ToastContainer />;
 
 export default App;

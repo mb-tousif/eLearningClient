@@ -1,8 +1,6 @@
 import React from 'react'
 import { useGetAllCoursesQuery } from '../../RTK/features/api/courseApi';
 import Loader from '../../ShareCompnt/Loader';
-import "video-react/dist/video-react.css";
-// import { Player } from 'video-react';
 
 export default function MyCourses() {
   const { data, isLoading } = useGetAllCoursesQuery();
