@@ -11,7 +11,7 @@ export default function AllCourses() {
   }
 
   return (
-    <section className="text-gray-600 grid mx-auto grid-cols-1">
+    <section className="text-gray-600 grid pt-2 pb-4 mx-auto grid-cols-1">
       {data.data.map((course) => (
         <div key={course._id} className="p-2">
           <div className="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
