@@ -3,7 +3,7 @@ import login from "../../Assets/login.png";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useGetLoginUserMutation } from "../../RTK/features/api/postUser";
+import { useGetLoginUserMutation } from "../../RTK/features/api/userApi";
 import Loader from "../../ShareCompnt/Loader";
 import { toast } from "react-toastify";
 

@@ -39,7 +39,7 @@ export default function AllCourses() {
                 {course.description}
               </p>
               <div className="flex justify-around mb-2">
-                <p className="ml-4">Discount: % {course.discount}</p>
+                <p className="ml-4">Discount: $ {course.discount}</p>
                 <p className="ml-4">Price: $ {course.price}</p>
               </div>
               <button

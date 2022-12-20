@@ -1,9 +1,21 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { BiMinus, BiPlus } from "react-icons/bi";
+import { addCartItem, clearCart, decreaseQuantity } from '../../RTK/features/cartSlice/cartSlice';
 
 export default function MyCart() {
-  const shoppingCart = useSelector(state=>state.cart)
+  const shoppingCart = useSelector(state=>state.cart);
+  const dispatch = useDispatch();
+   const handleDecreaseCart = (course) => {
+     dispatch(decreaseQuantity(course));
+   };
+   const handleIncreaseQuantity = (course) => {
+     dispatch(addCartItem(course));
+   };
+   const handleClearCart = () => {
+     dispatch(clearCart());
+   };
   return (
     <div className="mx-auto mb-4">
       <p className="text-lg mt-4 mb-4 font-bold">Course Cart</p>
@@ -23,27 +35,54 @@ export default function MyCart() {
         </div>
       ) : (
         <div class="bg-gradient-to-l sm:w-[450px] from-[#165e9c] to-[#ADCDED] rounded-lg text-center p-5 mx-auto my-auto font-medium shadow-lg">
-          <div class="py-2 text-2xl">
-            Web Development
-            <div class="font-bold text-2xl mt-3">Next.js Tutorial</div>
-            <hr />
-            <div class="font-bold text-lg my-3">Price: 120</div>
-            <hr />
-            <div class="font-bold text-lg my-3">Quantity: 1</div>
-            <hr />
-            <div class="font-bold text-lg my-3">Discount AMT: $10</div>
-            <hr />
-            <div class="font-bold text-lg my-3">Payable AMT: $110</div>
-            <hr />
-            <div class="font-bold flex justify-around text-lg">
-              <button className="text-rose-600 mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
-                Cancel
-              </button>
-              <button className="text-[#FFD422] mt-2 px-3 py-1.5 rounded-xl bg-[#010979]">
-                Enroll
-              </button>
+          {shoppingCart.cartItem.map((course) => (
+            <div key={course._id} class="py-2 sm:text-xl text-2xl">
+              {course.category}
+              <div class="font-bold sm:text-xl text-2xl mt-3">
+                {course.title}
+              </div>
+              <hr />
+              <div class="font-bold text-lg my-3">
+                Price: $ {shoppingCart.totalPrice}
+              </div>
+              <hr />
+              <div class="font-bold flex justify-evenly text-lg my-3">
+                <button>
+                  <BiMinus onClick={()=> handleDecreaseCart(course)} />
+                </button>
+                Quantity: {shoppingCart.quantity}
+                <button>
+                  <BiPlus onClick={ ()=> handleIncreaseQuantity(course)} />
+                </button>
+              </div>
+              <hr />
+              <div class="font-bold text-lg my-3">
+                Discount AMT: $ {shoppingCart.discount}
+              </div>
+              <hr />
+              <div class="font-bold text-lg my-3">
+                Payable AMT: $ {shoppingCart.finalPrice}
+              </div>
+              <hr />
+              <div class="font-bold mb-2 flex justify-around text-lg">
+                <button onClick={()=>handleClearCart()} className="text-rose-600 hover:bg-rose-600 hover:text-gray-50 mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
+                  Cancel
+                </button>
+                <button className="text-[#165e9c] hover:bg-amber-400 hover:text-[#523d03] mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
+                  Enroll
+                </button>
+              </div>
+              <hr />
+              <div className="mb-4 py-6">
+                <Link
+                  to="/courses"
+                  className="hover:bg-[#2f3a8b] p-2.5 hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] rounded-xl h-10 bg-amber-400"
+                >
+                  <span>Continue Shopping</span>
+                </Link>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       )}
     </div>

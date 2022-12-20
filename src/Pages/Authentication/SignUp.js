@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import Loader from '../../ShareCompnt/Loader';
-import { useGetSignUpUserMutation } from '../../RTK/features/api/postUser';
+import { useGetSignUpUserMutation } from '../../RTK/features/api/userApi';
 
 export default function SignUp() {
   const {
