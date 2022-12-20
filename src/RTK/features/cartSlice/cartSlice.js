@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 const initialState = {
-  cartItem: [],
-  quantity: null,
-  totalPrice: null,
-  discount: null,
-  finalPrice: null,
+  cartItem: localStorage.getItem("cartItem") ? JSON.parse(localStorage.getItem("cartItem")) : [],
+  quantity: localStorage.getItem("quantity") ? JSON.parse(localStorage.getItem("quantity")) : null,
+  totalPrice: localStorage.getItem("totalPrice") ? JSON.parse(localStorage.getItem("totalPrice")) : null,
+  discount: localStorage.getItem("discount") ? JSON.parse(localStorage.getItem("discount")) : null,
+  finalPrice: localStorage.getItem("finalPrice") ? JSON.parse(localStorage.getItem("finalPrice")) : null,
 };
 
 export const cartSlice = createSlice({
@@ -14,13 +14,13 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addCartItem: (state, action) => {
-      const cartIndex =  state.cartItem.findIndex(item=> item._id === action.payload._id)
+      const cartIndex =  state.cartItem.findIndex(item=> item._id === action.payload._id);
       if( cartIndex >=0 ){
-          state.quantity +=1;
+          state.quantity += 1;
           state.totalPrice += action.payload.price;
           state.discount += action.payload.discount;
           state.finalPrice = state.totalPrice - state.discount;
-          toast.info(`${state.cartItem[0].title} is added to your cart with ${state.quantity} times`);
+          toast.info(`${state.cartItem[0].title} was added to your cart with ${state.finalPrice} times`);
       }else{
           state.cartItem.push(action.payload);
           state.quantity += 1;
@@ -29,6 +29,11 @@ export const cartSlice = createSlice({
           state.finalPrice = state.totalPrice - state.discount;
           toast.success(`${state.cartItem[0].title} is added to your cart!`);
       }
+      localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
+      localStorage.setItem("quantity", JSON.stringify(state.quantity));
+      localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
+      localStorage.setItem("discount", JSON.stringify(state.discount));
+      localStorage.setItem("finalPrice", JSON.stringify(state.finalPrice));
     },
   },
 });
