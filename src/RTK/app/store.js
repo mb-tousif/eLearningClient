@@ -5,10 +5,12 @@ import { courseApi } from "../features/api/courseApi";
 import { userApi } from "../features/api/userApi";
 import { reviewApi } from "../features/api/reviewApi";
 import cartSlice from "../features/cartSlice/cartSlice";
+import authSlice from "../features/authSlice/authSlice";
 
 export const store = configureStore({
   reducer: {
     cart: cartSlice,
+    auth: authSlice,
     [userApi.reducerPath]: userApi.reducer,
     [courseApi.reducerPath]: courseApi.reducer,
     [blogApi.reducerPath]: blogApi.reducer,

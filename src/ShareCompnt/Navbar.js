@@ -3,9 +3,17 @@ import { Link } from "react-router-dom";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { FiBook } from "react-icons/fi";
 import logo from "../Assets/log.png";
+import { useDispatch } from 'react-redux';
+import { LogOut } from '../RTK/features/authSlice/authSlice';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
+  const handleAuth = () =>{
+    dispatch(LogOut());
+    window.location.reload();
+  }
   return (
     <nav className="bg-[#020c53] text-[#ffca3d] relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,12 +52,22 @@ export default function Navbar() {
                 >
                   Blogs
                 </Link>
+                {
+                  token ? <Link
+                  onClick={()=> handleAuth()}
+                  to="/"
+                  className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
+                >
+                  Log Out
+                </Link>
+                :
                 <Link
                   to="/login"
                   className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
                 >
                   Login
                 </Link>
+                }
                 <Link
                   to="/signUp"
                   className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"

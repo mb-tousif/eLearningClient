@@ -44,7 +44,6 @@ export const cartSlice = createSlice({
         state.quantity -= 1;
         state.totalPrice -= action.payload.price;
         state.discount -= action.payload.discount;
-        // state.finalPrice -= state.finalPrice
         state.finalPrice -= action.payload.price - action.payload.discount;
         localStorage.setItem("quantity", JSON.stringify(state.quantity));
         localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));

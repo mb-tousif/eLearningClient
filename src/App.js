@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./ShareCompnt/Navbar";
 import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
@@ -24,6 +24,7 @@ import BlogDetails from "./Pages/Blogs/BlogDetails";
 import AdminPage from "./Pages/Courses/AdminPage";
 
 function App() {
+  const token = localStorage.getItem("token");
   return (
     <>
       <SocialShare />
@@ -32,7 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="courses" element={<Courses />}>
+        <Route path="courses" element={ token ? <Courses /> : <Navigate to="/login" />}>
           <Route index element={<AllCourses />} />
           <Route path="admin" element={<AdminPage/>} />
           <Route path="cart" element={<MyCart />} />

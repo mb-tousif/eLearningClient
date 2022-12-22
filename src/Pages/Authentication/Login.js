@@ -6,8 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useGetLoginUserMutation } from "../../RTK/features/api/userApi";
 import Loader from "../../ShareCompnt/Loader";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../RTK/features/authSlice/authSlice";
 
 export default function Login() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -16,20 +19,19 @@ export default function Login() {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
   const [ createLogin, res ] = useGetLoginUserMutation();
-
   const onSubmit = (data) => {
     createLogin(data)
   };
-  console.log(res);
   
   if(res.isLoading === true){
     return <Loader/>
   }
   
   if (res.isSuccess === true) {
-    // localStorage.setItem("token", res.data.token);
+    dispatch(setCredentials(res.data));
     toast.success("Login Success");
     navigate("/");
+    window.location.reload();
   }
 
 

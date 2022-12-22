@@ -28,25 +28,24 @@ export default function MyCart() {
             <Link
               to="/courses"
               className="hover:bg-[#2f3a8b] mb-2 p-2.5 hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] rounded-xl h-10 bg-amber-400"
-            >
-              <span>Buy Course</span>
+            >Buy Course
             </Link>
           </div>
         </div>
       ) : (
-        <div class="bg-gradient-to-l sm:w-[450px] from-[#165e9c] to-[#ADCDED] rounded-lg text-center p-5 mx-auto my-auto font-medium shadow-lg">
+        <div className="bg-gradient-to-l sm:w-[450px] from-[#165e9c] to-[#ADCDED] rounded-lg text-center p-5 mx-auto my-auto font-medium shadow-lg">
           {shoppingCart.cartItem.map((course) => (
-            <div key={course._id} class="py-2 sm:text-xl text-2xl">
+            <div key={course._id} className="py-2 sm:text-xl text-2xl">
               {course.category}
-              <div class="font-bold sm:text-xl text-2xl mt-3">
+              <div className="font-bold sm:text-xl text-2xl mt-3">
                 {course.title}
               </div>
               <hr />
-              <div class="font-bold text-lg my-3">
+              <div className="font-bold text-lg my-3">
                 Price: $ {shoppingCart.totalPrice}
               </div>
               <hr />
-              <div class="font-bold flex justify-evenly text-lg my-3">
+              <div className="font-bold flex justify-evenly text-lg my-3">
                 <button>
                   <BiMinus onClick={()=> handleDecreaseCart(course)} />
                 </button>
@@ -56,15 +55,15 @@ export default function MyCart() {
                 </button>
               </div>
               <hr />
-              <div class="font-bold text-lg my-3">
+              <div className="font-bold text-lg my-3">
                 Discount AMT: $ {shoppingCart.discount}
               </div>
               <hr />
-              <div class="font-bold text-lg my-3">
+              <div className="font-bold text-lg my-3">
                 Payable AMT: $ {shoppingCart.finalPrice}
               </div>
               <hr />
-              <div class="font-bold mb-2 flex justify-around text-lg">
+              <div className="font-bold mb-2 flex justify-around text-lg">
                 <button onClick={()=>handleClearCart()} className="text-rose-600 hover:bg-rose-600 hover:text-gray-50 mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
                   Cancel
                 </button>
