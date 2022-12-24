@@ -22,6 +22,7 @@ import MyCourses from "./Pages/Courses/MyCourses";
 import StudentSupport from "./Pages/Courses/StudentSupport";
 import BlogDetails from "./Pages/Blogs/BlogDetails";
 import AdminPage from "./Pages/Courses/AdminPage";
+import StripeCard from "./Pages/Courses/StripeCard";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -37,6 +38,7 @@ function App() {
           <Route index element={<AllCourses />} />
           <Route path="admin" element={<AdminPage/>} />
           <Route path="cart" element={<MyCart />} />
+          <Route path="cart/paymentGateway" element={<StripeCard/>} />
           <Route path="myCourses" element={<MyCourses />} />
           <Route path="support" element={<StudentSupport/>} />
           <Route path="noticeBoard" element={<NoticeBoard />} />

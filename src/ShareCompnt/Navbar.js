@@ -52,22 +52,22 @@ export default function Navbar() {
                 >
                   Blogs
                 </Link>
-                {
-                  token ? <Link
-                  onClick={()=> handleAuth()}
-                  to="/"
-                  className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
-                >
-                  Log Out
-                </Link>
-                :
-                <Link
-                  to="/login"
-                  className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
-                >
-                  Login
-                </Link>
-                }
+                {token ? (
+                  <Link
+                    onClick={() => handleAuth()}
+                    to="/"
+                    className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
+                  >
+                    Log Out
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
+                  >
+                    Login
+                  </Link>
+                )}
                 <Link
                   to="/signUp"
                   className="px-3 py-2 justify-end rounded-md text-base md:text-lg font-medium"
@@ -116,12 +116,22 @@ export default function Navbar() {
           >
             Blogs
           </Link>
-          <Link
-            to="/login"
-            className="block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Login
-          </Link>
+          {token ? (
+            <Link
+              onClick={() => handleAuth()}
+              to="/"
+              className="block px-3 py-2 rounded-md text-base font-medium"
+            >
+              Log out
+            </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="block px-3 py-2 rounded-md text-base font-medium"
+            >
+              Login
+            </Link>
+          )}
           <Link
             to="/signUp"
             className="block px-3 py-2 rounded-md text-base font-medium"

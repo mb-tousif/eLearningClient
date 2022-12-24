@@ -20,7 +20,7 @@ export const authSlice = createSlice({
       state.status = "failed"
       state.user = null;
       state.token = null;
-      localStorage.clear();
+      localStorage.removeItem("token");
     },
   },
 });

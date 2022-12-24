@@ -1,11 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { addCartItem, clearCart, decreaseQuantity } from '../../RTK/features/cartSlice/cartSlice';
 
 export default function MyCart() {
   const shoppingCart = useSelector(state=>state.cart);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
    const handleDecreaseCart = (course) => {
      dispatch(decreaseQuantity(course));
@@ -67,7 +68,7 @@ export default function MyCart() {
                 <button onClick={()=>handleClearCart()} className="text-rose-600 hover:bg-rose-600 hover:text-gray-50 mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
                   Cancel
                 </button>
-                <button className="text-[#165e9c] hover:bg-amber-400 hover:text-[#523d03] mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
+                <button onClick={()=> navigate("paymentGateway")} className="text-[#165e9c] hover:bg-amber-400 hover:text-[#523d03] mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
                   Enroll
                 </button>
               </div>

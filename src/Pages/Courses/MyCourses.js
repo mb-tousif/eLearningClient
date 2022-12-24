@@ -19,7 +19,6 @@ export default function MyCourses() {
               className="w-full sm:w-[450px] md:w-[400px] lg:w-[400] h-60 md:h-h80 my-auto"
               src={course.url}
               title="YouTube video player"
-              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
           </section>
