@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from "react";
 import student from "../../Assets/student.png"
 import onlineClass from "../../Assets/onlineClass.png"
 import { FaGlobeAsia } from "react-icons/fa";
@@ -10,9 +10,9 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function HomeCourses() {
   const navigate = useNavigate();
   return (
-    <div>
+    <Fragment>
       <div className="flex justify-around mb-4 text-[#523d03]">
-        <div className="flex ml-4 p-4">
+        <div className="flex ml-4 p-4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div className="h-16 sm:ml-8 sm:h-20 w-2 bg-[#ffca3d]"></div>
           <div className="ml-2 my-auto">
             <p className="text-left text-xs sm:text-lg font-bold">ALL</p>
@@ -22,13 +22,13 @@ export default function HomeCourses() {
           </div>
         </div>
         <div className="h-30 w-12 my-auto">
-          <img src={student} alt="student" />
+          <img src={student} alt="student" data-aos-easing="ease-out-cubic" data-aos="fade-left" />
         </div>
       </div>
       <div className="mt-4">
-        <img src={onlineClass} className="mb-6 mt-3 mx-auto" alt="" />
+        <img src={onlineClass} data-aos="zoom-out" className="mb-6 mt-3 mx-auto" alt="" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          <div className="p-2">
+          <div className="p-2" data-aos="zoom-in-right">
             <Link to="/courses">
               <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
                 <FaGlobeAsia className="h-8 mx-auto w-12 mb-3" />
@@ -36,7 +36,7 @@ export default function HomeCourses() {
               </div>
             </Link>
           </div>
-          <div className="p-2">
+          <div className="p-2" data-aos="zoom-out-up">
             <Link to="/courses">
               <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
                 <VscWorkspaceTrusted className="h-8 mx-auto w-12 mb-3" />
@@ -44,7 +44,7 @@ export default function HomeCourses() {
               </div>
             </Link>
           </div>
-          <div className="p-2">
+          <div className="p-2" data-aos="zoom-out-down">
             <Link to="/courses">
               <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
                 <BsCodeSquare className="h-8 mx-auto w-12 mb-3" />
@@ -52,7 +52,7 @@ export default function HomeCourses() {
               </div>
             </Link>
           </div>
-          <div className="p-2">
+          <div className="p-2" data-aos="zoom-in-left">
             <Link to="/courses">
               <div className="p-2 bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED] hover:from-[#3A8678] rounded-2xl text-[#523d03]">
                 <GiArtificialIntelligence className="mx-auto h-8 w-12 mb-3" />
@@ -70,7 +70,7 @@ export default function HomeCourses() {
           All Courses
         </button>
       </div>
-    </div>
+    </Fragment>
   );
 }
 

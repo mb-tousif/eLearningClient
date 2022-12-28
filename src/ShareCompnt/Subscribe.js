@@ -17,7 +17,7 @@ export default function Subscribe() {
           Get Started
         </button>
       </div>
-      <div className="bg-white -mt-24 shadow-md rounded-lg overflow-hidden">
+      <div data-aos="zoom-out-down" className="bg-white -mt-24 shadow-md rounded-lg overflow-hidden">
         <div className="items-center justify-between py-10 px-5 shadow-2xl rounded-lg mx-auto text-center">
           <div className="px-2 -mt-6">
             <div className="text-center">

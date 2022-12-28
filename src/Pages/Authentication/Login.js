@@ -22,7 +22,12 @@ export default function Login() {
   const onSubmit = (data) => {
     createLogin(data)
   };
-  
+
+  if (res.error) {
+    toast.error("User not found! Please Login properly");
+    navigate("/login")
+  }
+
   if(res.isLoading === true){
     return <Loader/>
   }

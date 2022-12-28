@@ -23,7 +23,7 @@ export const cartSlice = createSlice({
         state.discount += action.payload.discount;
         state.finalPrice = state.totalPrice - state.discount;
         toast.info(
-          `${state.cartItem[0].title} was added to your cart with ${state.finalPrice} times`
+          `${state.cartItem[0].title} was added to your cart with ${state.quantity} times`
         );
       } else {
         state.cartItem.push(action.payload);

@@ -23,13 +23,15 @@ import StudentSupport from "./Pages/Courses/StudentSupport";
 import BlogDetails from "./Pages/Blogs/BlogDetails";
 import AdminPage from "./Pages/Courses/AdminPage";
 import StripeCard from "./Pages/Courses/StripeCard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const token = localStorage.getItem("token");
   return (
     <>
-      <SocialShare />
       <ScrollToTop />
+      <SocialShare />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -55,5 +57,5 @@ function App() {
     </>
   );
 }
-
+AOS.init();
 export default App;

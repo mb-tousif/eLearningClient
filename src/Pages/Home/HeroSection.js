@@ -5,9 +5,9 @@ import HeroPicture from '../../Assets/education.svg'
 export default function HeroSection() {
     const navigate = useNavigate()
   return (
-    <div className='bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED]'>
-      <div className="p-2 sm:flex justify-between">
-        <div className="my-auto flex justify-center">
+    <div className='bg-gradient-to-r mx-auto from-[#D0DAE3] to-[#ADCDED]'>
+      <div className="p-2 sm:flex sm:justify-between">
+        <div className="my-auto flex justify-center" data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div className="h-40 sm:ml-8 sm:h-60 w-2 bg-[#ffca3d]"></div>
           <div className="ml-3 text-[#523d03] sm:text-2xl md:text-3xl my-auto font-bold">
             <h1 className="text-left">The Best Online Courses,</h1>
@@ -18,7 +18,7 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
-        <div className="sm:mr-6">
+        <div className="sm:pr-6">
           <img src={HeroPicture} alt="HeroPicture" className='sm:h-80 h-48 mx-auto' />
         </div>
       </div>

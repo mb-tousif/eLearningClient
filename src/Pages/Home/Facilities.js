@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { FaServicestack } from "react-icons/fa";
 import avatar from "../../Assets/femaleStudent.png"
 import tutor from "../../Assets/tutor.png"
@@ -8,8 +8,8 @@ import weekly from "../../Assets/weekly.png";
 
 export default function Facilities() {
   return (
-    <Fragment>
-      <h1 className="text-[#523d03] font-semibold sm:font-extrabold text-3xl mt-12 mb-8">
+    <div>
+      <h1 data-aos="fade-up-right" data-aos-easing="ease-in-sine" data-aos-duration="6000" className="text-[#523d03] font-semibold sm:font-extrabold text-3xl mt-12 mb-8">
         Students Facilities <FaServicestack className="inline" />
       </h1>
       <p className="sm:text-xl w-2/3 text-justify mx-auto sm:font-semibold mb-12 text-[#523d03]">
@@ -19,7 +19,7 @@ export default function Facilities() {
         is all about project-based learning. We create short highly-focused
         videos that make learning to level up your programming skills.
       </p>
-      <div className="container grid sm:grid-cols-2 grid-cols-1">
+      <div className="grid sm:grid-cols-2 grid-cols-1">
         <div className="grid sm:grid-cols-2 grid-cols-1">
           <div className="p-3">
             <img src={tutor} alt="mentor" className="mx-auto h-20 w-24" />
@@ -71,7 +71,7 @@ export default function Facilities() {
           </div>
         </div>
         <div className="mx-auto my-auto">
-          <h1 className="text-[#032d61] text-justify font-semibold sm:font-extrabold text-2xl mt-4 p-2">
+          <h1 data-aos="fade-up" data-aos-duration="5000" className="text-[#032d61] text-justify font-semibold sm:font-extrabold text-2xl mt-4 p-2">
             Making Your Learning <br /> More Enjoyable
           </h1>
           <p className="text-[#044d07] text-justify p-2 font-normal sm:font-medium text-lg mb-8">
@@ -80,11 +80,11 @@ export default function Facilities() {
           </p>
           <div className="p-4">
             <div className="rounded-xl bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED]">
-              <img src={avatar} alt="Avatar" className="w-56 mx-auto h-60" />
+              <img data-aos="fade-left" data-aos-duration="5000" src={avatar} alt="Avatar" className="w-auto mx-auto h-60" />
             </div>
           </div>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }

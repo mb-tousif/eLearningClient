@@ -9,13 +9,13 @@ export default function HomeReviews() {
   }
   return (
     <div>
-      <h1 className="text-[#523d03] font-semibold sm:font-extrabold text-3xl mt-12 mb-8">
+      <h1 data-aos="fade-up-left" data-aos-easing="ease-out-quad" data-aos-duration="6000" className="text-[#523d03] font-semibold sm:font-extrabold text-3xl mt-12 mb-8">
         What our Students say
       </h1>
       <div className="w-2/3 mx-auto mt-4 mb-4 h-2 bg-[#2c1668] rounded-3xl"></div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
         {data.data.map((review) => (
-          <div key={review._id} className="max-w-sm mx-auto w-full key={review.id} lg:flex">
+          <div key={review._id} data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="max-w-sm mx-auto w-full lg:flex">
             <div
               className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
               style={{ backgroundImage: `url(${review.imageUrl})`, backgroundSize: "cover",backgroundPosition: "center"}}

@@ -6,7 +6,7 @@ import { someBodies } from '../../Constant/Data';
 export default function TopBanner() {
   return (
     <div className="mt-6">
-      <div className="my-auto flex justify-center">
+      <div className="my-auto flex justify-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
         <div className="h-28 ml-3 sm:ml-8 sm:h-40 w-2 bg-[#ffca3d]"></div>
         <div className="ml-3 text-[#523d03] sm:text-2xl md:text-3xl my-auto font-bold">
           <h1 className="text-left">Little Somebodies Are</h1>
