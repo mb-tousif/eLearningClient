@@ -5,7 +5,7 @@ import HeroPicture from '../../Assets/education.svg'
 export default function HeroSection() {
     const navigate = useNavigate()
   return (
-    <div className='bg-gradient-to-r mx-auto from-[#D0DAE3] to-[#ADCDED]'>
+    <div className='bg-gradient-to-r mx-auto container from-[#D0DAE3] to-[#ADCDED]'>
       <div className="p-2 sm:flex sm:justify-between">
         <div className="my-auto flex justify-center" data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div className="h-40 sm:ml-8 sm:h-60 w-2 bg-[#ffca3d]"></div>
@@ -23,7 +23,7 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="p-4 pb-8">
-        <button onClick={()=> navigate("/login")} className="hover:bg-[#2f3a8b] hover:text-gray-50 transition ease-in-out duration-500 w-1/2 sm:w-1/3 md:w-1/4 text-[#523d03] rounded-2xl h-10 bg-amber-400">
+        <button data-aos="fade-left" onClick={()=> navigate("/login")} className="hover:bg-[#2f3a8b] hover:text-gray-50 transition ease-in-out duration-500 w-1/2 sm:w-1/3 md:w-1/4 text-[#523d03] rounded-2xl h-10 bg-amber-400">
           Get Started
         </button>
       </div>

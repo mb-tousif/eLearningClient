@@ -16,7 +16,7 @@ export default function Navbar() {
   }
   return (
     <nav className="bg-[#020c53] w-full text-[#ffca3d] relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex flex-auto">
             <div className="mx-auto my-auto p-2">

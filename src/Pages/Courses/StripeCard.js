@@ -1,7 +1,33 @@
-import React from 'react'
-import creditCard from "../../Assets/creditCard.png"
+import React from "react";
+import creditCard from "../../Assets/creditCard.png";
+import { loadStripe } from "@stripe/stripe-js";
+import { useSelector } from "react-redux";
 
 export default function StripeCard() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const shoppingCart = useSelector((state) => state.cart);
+    let stripePromise;
+    const getStripe = () => {
+      if (!stripePromise) {
+        stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+      }
+
+      return stripePromise;
+    };
+    const checkoutOptions = {
+      lineItems: [{
+        price: shoppingCart.finalPrice,
+        quantity: shoppingCart.quantity
+      }],
+      mode: "payment",
+      };
+    const redirectToCheckout = async () => {
+      console.log("redirectToCheckout");
+      const stripe = await getStripe();
+      const { error } = await stripe.redirectToCheckout(checkoutOptions);
+      console.log("Stripe checkout error", error);
+    };
+
   return (
     <div className="container mb-4">
       <div className="m-4">
@@ -18,8 +44,7 @@ export default function StripeCard() {
                 <input
                   type="text"
                   className="block w-full px-5 py-2 border rounded-lg shadow-lg placeholder-gray-400 text-[#fff] bg-[#070c42de] focus:ring focus:outline-none"
-                  placeholder="Card Holder"
-                  maxLength="22"
+                  value={user.fullName}
                 />
               </div>
               <div className="my-3">
@@ -37,9 +62,7 @@ export default function StripeCard() {
                   </label>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  <select
-                    className="form-select appearance-none block w-full px-5 py-2 border rounded-lg shadow-lg placeholder-gray-400 text-[#fff] bg-[#070c42de] focus:ring focus:outline-none"
-                  >
+                  <select className="form-select appearance-none block w-full px-5 py-2 border rounded-lg shadow-lg placeholder-gray-400 text-[#fff] bg-[#070c42de] focus:ring focus:outline-none">
                     <option value="" selected disabled>
                       MM
                     </option>
@@ -81,7 +104,7 @@ export default function StripeCard() {
             </div>
           </main>
           <footer className="mt-2 p-2">
-            <button className="text-[#fff] hover:text-[#FFFF00] bg-[#070c42de] transition duration-700 ease-in-out hover:bg-[#1f5119] mt-2 px-3 py-1.5 rounded-xl w-full">
+            <button onclick={redirectToCheckout} className="text-[#fff] hover:text-[#FFFF00] bg-[#070c42de] transition duration-700 ease-in-out hover:bg-[#1f5119] mt-2 px-3 py-1.5 rounded-xl w-full">
               Pay Now
             </button>
           </footer>

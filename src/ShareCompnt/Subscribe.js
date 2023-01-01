@@ -5,7 +5,7 @@ import QR from '../Assets/QR.png'
 export default function Subscribe() {
   const navigate = useNavigate();
   return (
-    <div className="container flex flex-col justify-center items-center mx-auto my-8 py-10">
+    <div className="flex flex-col justify-center items-center mx-auto my-8 py-10">
       <div className="max-w-5xl h-64 w-full rounded-lg shadow-md bg-gradient-to-r from-[#D0DAE3] to-[#ADCDED]">
         <h1 className="text-[#523d03] font-semibold sm:font-extrabold mt-2 mb-4 p-2 text-3xl sm:mt-8 sm:mb-4">
           Ready to start Learning ? Join Here...
@@ -17,7 +17,7 @@ export default function Subscribe() {
           Get Started
         </button>
       </div>
-      <div data-aos="zoom-out-down" className="bg-white -mt-24 shadow-md rounded-lg overflow-hidden">
+      <div data-aos="zoom-out-down" data-aos-easing="ease-out-quad" data-aos-duration="6000" className="bg-white -mt-24 shadow-md rounded-lg overflow-hidden">
         <div className="items-center justify-between py-10 px-5 shadow-2xl rounded-lg mx-auto text-center">
           <div className="px-2 -mt-6">
             <div className="text-center">
