@@ -59,7 +59,15 @@ export const cartSlice = createSlice({
     },
     clearCart(state, action) {
       state.cartItem = [];
-      localStorage.clear()
+      state.quantity = null;
+      state.totalPrice = null;
+      state.discount = null;
+      state.finalPrice = null;
+      localStorage.removeItem("cartItem");
+      localStorage.removeItem("quantity");
+      localStorage.removeItem("totalPrice");
+      localStorage.removeItem("discount");
+      localStorage.removeItem("finalPrice");
       toast.error("Cart cleared");
     },
   },
