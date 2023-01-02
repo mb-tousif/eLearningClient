@@ -6,6 +6,7 @@ import { userApi } from "../features/api/userApi";
 import { reviewApi } from "../features/api/reviewApi";
 import cartSlice from "../features/cartSlice/cartSlice";
 import authSlice from "../features/authSlice/authSlice";
+import { courseAccessApi } from "../features/api/courseAccessApi";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     [courseApi.reducerPath]: courseApi.reducer,
     [blogApi.reducerPath]: blogApi.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
+    [courseAccessApi.reducerPath]: courseAccessApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -22,6 +24,7 @@ export const store = configureStore({
       courseApi.middleware,
       blogApi.middleware,
       reviewApi.middleware,
+      courseAccessApi.middleware,
     ),
 });
 

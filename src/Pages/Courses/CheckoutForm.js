@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../../RTK/features/cartSlice/cartSlice";
 
 export default function CheckoutForm({ user }) {
   const { fullName, email } = user;
@@ -12,10 +13,10 @@ export default function CheckoutForm({ user }) {
   const elements = useElements();
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
-  const [setProcessing] = useState(false);
+  const [ processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-
+  const dispatch = useDispatch();
   const price = shoppingCart.finalPrice;
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function CheckoutForm({ user }) {
           setClientSecret(data.clientSecret);
         }
       });
-  }, [price]);
+  }, [price, processing]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,6 +88,7 @@ export default function CheckoutForm({ user }) {
       })
         .then((res) => res.json())
         .then((data) => {
+          dispatch(clearCart());
           setProcessing(false);
         });
     }
@@ -94,8 +96,8 @@ export default function CheckoutForm({ user }) {
 
   return (
     <div className="mx-auto my-auto">
-      <div className="sm:p-6 bg-lime-600">
-        <form onSubmit={(e)=>handleSubmit(e)} className="sm:w-80 w-60">
+      <div className="bg-gradient-to-l sm:w-[450px] from-[#165e9c] to-[#ADCDED] rounded-lg text-center p-5 mx-auto my-auto font-medium shadow-lg">
+        <form onSubmit={(e) => handleSubmit(e)} className="sm:w-80 w-60">
           <CardElement
             options={{
               style: {
@@ -113,15 +115,17 @@ export default function CheckoutForm({ user }) {
             }}
           />
           {transactionId ? (
-            <p className="text-white mt-8">payment done</p>
+            <p className="text-white text-center mt-8">Payment done</p>
           ) : (
-            <button
-              className="bg-slate-500 mt-12 text-lg"
-              type="submit"
-              disabled={!stripe || !clientSecret}
-            >
-              Pay<span className="ml-3">${price}</span>
-            </button>
+            <div className="flex justify-end">
+              <button
+                className="bg-lime-800 p-2 text-white rounded-xl mt-12 text-lg"
+                type="submit"
+                disabled={!stripe || !clientSecret}
+              >
+                Pay<span className="ml-3">${price}</span>
+              </button>
+            </div>
           )}
         </form>
         {cardError && <p className="text-red-500">{cardError}</p>}
@@ -131,7 +135,9 @@ export default function CheckoutForm({ user }) {
               Your transaction Id
               <span className="text-orange-500 font-bold">{transactionId}</span>
             </p>
-            <button onClick={()=>navigate("courses/myCourses")}>Watch Tutorial</button>
+            <button onClick={() => navigate("courses/myCourses")}>
+              Watch Tutorial
+            </button>
           </div>
         )}
       </div>

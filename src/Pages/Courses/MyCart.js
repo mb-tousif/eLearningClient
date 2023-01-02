@@ -36,9 +36,9 @@ export default function MyCart() {
       ) : (
         <div className="bg-gradient-to-l sm:w-[450px] from-[#165e9c] to-[#ADCDED] rounded-lg text-center p-5 mx-auto my-auto font-medium shadow-lg">
           {shoppingCart.cartItem.map((course) => (
-            <div key={course._id} className="py-2 sm:text-xl text-2xl">
+            <div key={course._id} className="py-2 text-lg sm:text-2xl">
               {course.category}
-              <div className="font-bold sm:text-xl text-2xl mt-3">
+              <div className="font-bold text-xl sm:text-2xl mt-3">
                 {course.title}
               </div>
               <hr />
@@ -46,7 +46,7 @@ export default function MyCart() {
                 Price: $ {shoppingCart.totalPrice}
               </div>
               <hr />
-              <div className="font-bold flex justify-evenly text-lg my-3">
+              <div className="font-medium flex justify-evenly text-base my-3">
                 <button>
                   <BiMinus onClick={()=> handleDecreaseCart(course)} />
                 </button>
@@ -56,11 +56,11 @@ export default function MyCart() {
                 </button>
               </div>
               <hr />
-              <div className="font-bold text-lg my-3">
+              <div className="font-medium text-base my-3">
                 Discount AMT: $ {shoppingCart.discount}
               </div>
               <hr />
-              <div className="font-bold text-lg my-3">
+              <div className="font-medium text-base my-3">
                 Payable AMT: $ {shoppingCart.finalPrice}
               </div>
               <hr />
@@ -73,10 +73,10 @@ export default function MyCart() {
                 </button>
               </div>
               <hr />
-              <div className="mb-4 py-6">
+              <div className="mb-4 sm:py-6">
                 <Link
                   to="/courses"
-                  className="hover:bg-[#2f3a8b] p-2.5 hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] rounded-xl h-10 bg-amber-400"
+                  className="hover:bg-[#2f3a8b] p-2.5 hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] text-xs sm:text-xl rounded-xl h-10 bg-amber-400"
                 >
                   <span>Continue Shopping</span>
                 </Link>
