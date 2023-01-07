@@ -8,7 +8,7 @@ export default function HomeReviews() {
     return <Loader />;
   }
   return (
-    <div>
+    <>
       <h1 data-aos="fade-up-left" data-aos-easing="ease-out-quad" data-aos-duration="6000" className="text-[#523d03] font-semibold sm:font-extrabold text-3xl mt-12 mb-8">
         What our Students say
       </h1>
@@ -38,7 +38,7 @@ export default function HomeReviews() {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,6 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./ShareCompnt/Navbar";
@@ -23,11 +25,10 @@ import StudentSupport from "./Pages/Courses/StudentSupport";
 import BlogDetails from "./Pages/Blogs/BlogDetails";
 import AdminPage from "./Pages/Courses/AdminPage";
 import StripeCard from "./Pages/Courses/StripeCard";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function App() {
   const token = localStorage.getItem("token");
+  AOS.init();
   return (
     <>
       <ScrollToTop />
@@ -57,5 +58,4 @@ function App() {
     </>
   );
 }
-AOS.init();
 export default App;

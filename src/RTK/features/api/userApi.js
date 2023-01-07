@@ -4,6 +4,12 @@ export const userApi = createApi({
   reducerPath: "registerApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://e-learning-server-omega.vercel.app/api/v1" }),
   endpoints: (builder) => ({
+    getAllUser: builder.query ({
+      query: () => ({
+        url: "allUsers",
+        method: "GET",
+      }),
+    }),
     getLoginUser: builder.mutation ({
       query: ( data) => ({
         url: "login",
@@ -27,4 +33,4 @@ export const userApi = createApi({
   }),
 });
 
-export const { useGetLoginUserMutation, useGetSignUpUserMutation } = userApi
+export const { useGetLoginUserMutation, useGetSignUpUserMutation, useGetAllUserQuery } = userApi

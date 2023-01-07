@@ -8,7 +8,7 @@ import weekly from "../../Assets/weekly.png";
 
 export default function Facilities() {
   return (
-    <div className="container">
+    <div className="">
       <h1
         data-aos="fade-up-right"
         data-aos-easing="ease-in-sine"

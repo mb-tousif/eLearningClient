@@ -98,22 +98,11 @@ export default function CheckoutForm({ user }) {
     <div className="mx-auto my-auto">
       <div className="bg-gradient-to-l sm:w-[450px] from-[#165e9c] to-[#ADCDED] rounded-lg text-center p-5 mx-auto my-auto font-medium shadow-lg">
         <form onSubmit={(e) => handleSubmit(e)} className="sm:w-80 w-60">
-          <CardElement
-            options={{
-              style: {
-                base: {
-                  fontSize: "16px",
-                  color: "#560ad1",
-                  "::placeholder": {
-                    color: "#523d03",
-                  },
-                },
-                invalid: {
-                  color: "#9e2146",
-                },
-              },
-            }}
-          />
+        <fieldset name="card" className="FormGroup">
+            <div className="FormRow">
+              <CardElement />
+            </div>
+          </fieldset>
           {transactionId ? (
             <p className="text-white text-center mt-8">Payment done</p>
           ) : (

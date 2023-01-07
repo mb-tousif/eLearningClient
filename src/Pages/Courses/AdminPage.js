@@ -1,6 +1,12 @@
 import React from "react";
+import { useGetAllUserQuery } from "../../RTK/features/api/userApi";
+import Loader from "../../ShareCompnt/Loader";
 
 export default function AdminPage() {
+  const { data, isLoading} = useGetAllUserQuery();
+  if (isLoading === true) {
+    return <Loader />;
+  }
   return (
     <div className="mx-auto text-[#1b167b] my-auto">
       <h1 className="mb-4 mt-4 font-medium text-xl">Admin Page</h1>
@@ -14,7 +20,7 @@ export default function AdminPage() {
                   <div className="font-semibold text-center">User Name</div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-center">Status</div>
+                  <div className="font-semibold text-center">Avatar</div>
                 </th>
                 <th className="p-2">
                   <div className="font-semibold text-center">Role</div>
@@ -24,16 +30,17 @@ export default function AdminPage() {
                 </th>
               </tr>
             </thead>
-            <tbody className="text-sm divide-y divide-gray-100">
+            {
+              data.data.map(user=><tbody key={user._id} className="text-sm divide-y divide-gray-100">
               <tr>
                 <td className="p-2">
-                  <div className="font-medium">Samsung Galaxy Note 4</div>
+                  <div className="font-medium">{user.fullName}</div>
                 </td>
                 <td className="p-2">
-                  <div className="text-left">1</div>
+                  <img src={user.image} alt="User images" className="h-12 w-12 rounded-full" />
                 </td>
                 <td className="p-2">
-                  <div className="text-left font-medium">RM 2,890.66</div>
+                  <div className="text-left font-medium">{user.role}</div>
                 </td>
                 <td className="p-2">
                   <div className="flex justify-center">
@@ -56,11 +63,12 @@ export default function AdminPage() {
                   </div>
                 </td>
               </tr>
-            </tbody>
+            </tbody>)
+            }
           </table>
         </div>
-        <div className="flex justify-end font-bold text-[#dba309] space-x-4 text-xl border-t border-gray-100 px-5 py-4">
-          <h1>Admin Signature</h1>
+        <div className="text-center font-bold text-[#740160] space-x-4 text-base border-t border-gray-100 px-5 py-4">
+          <h1>Only admin can mange users</h1>
         </div>
       </div>
     </div>
