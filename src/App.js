@@ -25,9 +25,10 @@ import StudentSupport from "./Pages/Courses/StudentSupport";
 import BlogDetails from "./Pages/Blogs/BlogDetails";
 import AdminPage from "./Pages/Courses/AdminPage";
 import StripeCard from "./Pages/Courses/StripeCard";
+import { useSelector } from "react-redux";
 
 function App() {
-  const token = localStorage.getItem("token");
+  const { token } = useSelector((state) => state.auth);
   AOS.init();
   return (
     <>

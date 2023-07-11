@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { FiBook } from "react-icons/fi";
 import logo from "../Assets/log.png";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LogOut } from '../RTK/features/authSlice/authSlice';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const token = localStorage.getItem("token");
+  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const handleAuth = () =>{
     dispatch(LogOut());
-    window.location.reload();
   }
   return (
     <nav className="bg-[#020c53] w-full text-[#ffca3d] relative z-10">
