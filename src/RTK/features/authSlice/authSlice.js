@@ -17,7 +17,7 @@ export const authSlice = createSlice({
       localStorage.setItem("token", JSON.stringify(state.token));
       localStorage.setItem("user", JSON.stringify(state.user));
     },
-    LogOut: (state , action) => {
+    LogOut: (state) => {
       state.status = "failed"
       state.user = null;
       state.token = null;
