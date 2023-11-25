@@ -31,11 +31,13 @@ export default function Login() {
   if(res.isLoading === true){
     return <Loader/>
   }
+
+  console.log(res?.data);
   
   if (res.isSuccess === true) {
-    dispatch(setCredentials(res.data));
+    dispatch(setCredentials(res?.data));
     toast.success("Login Success");
-    navigate("/");
+    navigate("/courses");
     // window.location.reload();
   }
 

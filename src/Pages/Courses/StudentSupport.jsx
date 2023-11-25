@@ -1,12 +1,16 @@
-import React from 'react'
 import { useForm } from "@formspree/react";
 import { MdOutgoingMail } from "react-icons/md";
 import helpAvatar from "../../Assets/blog.svg";
 
-
 export default function StudentSupport() {
   const [state, handleSubmit] = useForm("mgedqyov");
-
+  if (state.succeeded) {
+    return (
+      <p className="text-2xl text-center mx-auto my-auto text-[#868d05] mt-4 font-bold">
+        Thanks for your message. We will join with you within Six Hours!
+      </p>
+    );
+  }
   return (
     <div className="mx-auto pb-4 text-[#1b167b]">
       <p className="text-2xl text-[#868d05] mt-4 font-bold">Student Support Page.</p>
@@ -50,13 +54,6 @@ export default function StudentSupport() {
             SEND <MdOutgoingMail className="w-6 h-6 ml-2" />
           </button>
         </form>
-        {state.succeeded ? (
-          <p className="text-xl font-semiBold text-center m-3">
-            Thanks for your message. We will join with you within Six Hours! 
-          </p>
-        ) : (
-          ""
-        )}
       </div>
     </div>
   );

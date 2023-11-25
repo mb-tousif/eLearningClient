@@ -8,7 +8,30 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Modification */
+::-webkit-scrollbar {
+    width: 3vh;
+}
+
+::-webkit-scrollbar-track {
+    width: 3vh;
+    height: 40vmax;
+    background-image: linear-gradient(to bottom, #020c53 0%, #a3a10a 100%);
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, #020c53 0%, #ffca3d 100%);
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
 }

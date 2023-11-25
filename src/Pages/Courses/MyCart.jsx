@@ -26,9 +26,10 @@ export default function MyCart() {
           </h1>
           <div className="m-2 mb-2 mt-20">
             <Link
-              to="/courses"
+              to="/courses/cart"
               className="hover:bg-[#2f3a8b] mb-2 p-2.5 hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] rounded-xl h-10 bg-amber-400"
-            >Buy Course
+            >
+              Buy Course
             </Link>
           </div>
         </div>
@@ -47,11 +48,11 @@ export default function MyCart() {
               <hr />
               <div className="font-medium flex justify-evenly text-base my-3">
                 <button>
-                  <BiMinus onClick={()=> handleDecreaseCart(course)} />
+                  <BiMinus onClick={() => handleDecreaseCart(course)} />
                 </button>
                 Quantity: {shoppingCart.quantity}
                 <button>
-                  <BiPlus onClick={ ()=> handleIncreaseQuantity(course)} />
+                  <BiPlus onClick={() => handleIncreaseQuantity(course)} />
                 </button>
               </div>
               <hr />
@@ -64,10 +65,16 @@ export default function MyCart() {
               </div>
               <hr />
               <div className="font-bold mb-2 flex justify-around text-lg">
-                <button onClick={()=>handleClearCart()} className="text-rose-600 hover:bg-rose-600 hover:text-gray-50 mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
+                <button
+                  onClick={() => handleClearCart()}
+                  className="text-rose-600 hover:bg-rose-600 hover:text-gray-50 mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]"
+                >
                   Cancel
                 </button>
-                <button onClick={()=> navigate("paymentGateway")} className="text-[#165e9c] hover:bg-amber-400 hover:text-[#523d03] mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]">
+                <button
+                  onClick={() => navigate("/courses/cart/paymentGateway")}
+                  className="text-[#165e9c] hover:bg-amber-400 hover:text-[#523d03] mt-2 px-3 py-1.5 rounded-xl bg-[#ecedf7]"
+                >
                   Enroll
                 </button>
               </div>

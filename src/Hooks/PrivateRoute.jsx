@@ -1,14 +1,12 @@
-/* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
-import { Navigate, useLocation } from "react-router";
-const PrivateRoute = ({ children }) => {
-  const { accessToken } = useSelector((state) => state.auth);
-  const location = useLocation();
+import { Navigate, useLocation } from "react-router-dom";
 
-  if (accessToken) {
+// eslint-disable-next-line react/prop-types
+export default function PrivateRoute({ children}) {
+  const { token } = useSelector((state) => state.auth);
+  const location = useLocation();
+  if (token) {
     return children;
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
-};
-
-export default PrivateRoute;
+}

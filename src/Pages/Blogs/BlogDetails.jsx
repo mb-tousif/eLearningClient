@@ -29,7 +29,7 @@ export default function BlogDetails() {
          </p>
         </div>
         <div className="py-3 px-6 text-right border-gray-300 text-gray-600">
-            {data.data.createdAt}
+            {data.data.createdAt.split("T")[0]}
         </div>
       </div>
   );

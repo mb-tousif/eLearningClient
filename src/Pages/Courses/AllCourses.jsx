@@ -2,9 +2,10 @@ import Loader from "../../ShareCompnt/Loader";
 import { useGetAllCoursesQuery } from "../../RTK/features/api/courseApi";
 import { useDispatch } from "react-redux";
 import { addCartItem } from "../../RTK/features/cartSlice/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function AllCourses() {
-  
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { data, isLoading} = useGetAllCoursesQuery();
@@ -15,6 +16,7 @@ export default function AllCourses() {
 
   const handleAddToCart = ( course) =>{
     dispatch(addCartItem(course))
+    navigate("/courses/cart");
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import Subscribe from '../../ShareCompnt/Subscribe';
 import Facilities from './Facilities';
 import HeroSection from './HeroSection';

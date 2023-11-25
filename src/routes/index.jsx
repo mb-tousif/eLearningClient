@@ -16,6 +16,7 @@ import StudentProgress from "../Pages/Courses/StudentProgress";
 import Blogs from "../Pages/Blogs/Blogs";
 import BlogDetails from "../Pages/Blogs/BlogDetails";
 import PageNotFound from "../ShareCompnt/PageNotFound";
+import About from "../Pages/About/About";
 
 const router = createBrowserRouter([
   {
@@ -27,15 +28,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "login",
+        path: "/login",
         element: <Login />,
       },
       {
-        path: "signup",
+        path: "/signup",
         element: <SignUp />,
       },
       {
-        path: "courses",
+        path: "/courses",
         element: (
           <PrivateRoute>
             <Courses />
@@ -43,41 +44,41 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: "/",
+            path: "/courses",
             element: <AllCourses />,
           },
           {
-            path: "admin",
+            path: "/courses/admin",
             element: <AdminPage />,
           },
           {
-            path: "cart",
+            path: "/courses/cart",
             element: <MyCart />,
           },
           {
-            path: "cart/paymentGateway",
+            path: "/courses/cart/paymentGateway",
             element: <StripeCard />,
           },
           {
-            path: "myCourses",
+            path: "/courses/myCourses",
             element: <MyCourses />,
           },
           {
-            path: "support",
+            path: "/courses/support",
             element: <StudentSupport />,
           },
           {
-            path: "noticeBoard",
+            path: "/courses/noticeBoard",
             element: <NoticeBoard />,
           },
           {
-            path: "studentProgress",
+            path: "/courses/studentProgress",
             element: <StudentProgress />,
           },
         ],
       },
       {
-        path: "blog/:id",
+        path: "/blog/:id",
         element: (
           <PrivateRoute>
             <BlogDetails />
@@ -89,25 +90,23 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "blogs",
+        path: "/blogs",
         element: (
           <PrivateRoute>
             <Blogs />
           </PrivateRoute>
         ),
       },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "*",
+        element: <PageNotFound />,
+      },
     ],
   },
-    {
-        path: "*",
-        element: <Main />,
-        children: [
-        {
-            path: "*",
-            element: <PageNotFound />,
-        },
-        ],
-    },
 ]);
 
 export default router;
