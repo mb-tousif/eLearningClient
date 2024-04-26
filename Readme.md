@@ -14,6 +14,7 @@
 - [x] React Router
 - [x] Redux
 - [x] Tailwind CSS
+- [x] Docker
 - [x] Firebase
 - [x] React Hook Form
 - [x] React Toastify
