@@ -26,7 +26,7 @@ export default function MyCart() {
           </h1>
           <div className="m-2 mb-2 mt-20">
             <Link
-              to="/courses/cart"
+              to="/courses"
               className="hover:bg-[#2f3a8b] mb-2 p-2.5 hover:text-gray-50 transition ease-in-out duration-500 text-[#523d03] rounded-xl h-10 bg-amber-400"
             >
               Buy Course
